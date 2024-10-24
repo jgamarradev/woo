@@ -1,0 +1,36 @@
+/*
+Theme Name: Storefront Child
+Theme URI: https://woocommerce.com/products/storefront/
+Description: Child Theme from Storefront
+Author: Automattic
+Author URI: https://woocommerce.com/
+Template: Storefront
+Version: 1.0
+*/
+
+.related-products-grid {
+  margin: 20px 0;
+}
+
+.related-products-grid h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 20px; /* Espaciado entre productos */
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tabletas */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+}
