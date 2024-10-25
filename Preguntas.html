@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Preguntas Teóricas</h1>
+    <p style="color: blue">
+      ¿Cómo asegurarías que tu plugin no cause conflictos con otros plugins o
+      temas instalados?
+    </p>
+    <div>
+      Existen buenas practicas establecidas para evitar que esto suceda, se
+      pueden encontrar en el Plugin Handbook de Wordpress.org. Personalmente
+      sigo los siguientes:
+      <ul>
+        <li>
+          1.- Es común la dependencia de plugins en el desarrollo de plugins ya
+          sea para extender funcionalidades pero es recomendable evitarlas en lo
+          posible, una de las mas comunes es la dependencia de WooCommerce.
+        </li>
+        <li>
+          2.- Suelo usar hooks y filtros para realizar modificaciones a temas y
+          plugins para no modificar codigo en el core de los mismos.
+        </li>
+        <li>3.- Uso encolado de scripts y de estilos para componentes base.</li>
+        <li>
+          4.- Uso de condicionales para cargar ciertos estilos, funciones y
+          scripts para paginas especificas, wordpress provee de funciones para
+          el manejo de esta practica.
+        </li>
+        <li>
+          4.- Uso de condicionales para cargar ciertos estilos, funciones y
+          scripts para paginas especificas, wordpress provee de funciones para
+          el manejo de esta practica.
+        </li>
+        <li>
+          5.- Es buena practica el uso de prefijos para el nombrado de funciones
+          esto previene la colision de funciones.
+        </li>
+        <li>
+          6.- Uso de los hooks register_uninstall_hook y
+          register_deactivation_hook para limpiar datos almacenados por nuestro
+          plugin.
+        </li>
+      </ul>
+    </div>
+    <p style="color: blue">
+      Explica la diferencia entre acciones y filtros en WordPress. Proporciona
+      un ejemplo de cada uno.
+    </p>
+    <div>
+      <p>
+        La diferencia es que las acciones permiten ejecutar codigo en un momento
+        y lugar especifico sin modificar los valores, en cambio los filtros
+        modifican los datos antes de mostrarlos o guardarlos.
+      </p>
+      <p>
+        En el desarrollo del plugin use
+        add_action('woocommerce_before_checkout_form') y
+        add_action('storefront_before_content') los cuales me permitieron
+        colocar el mensaje mediante codigo en un lugar especifico. El tema
+        storefront usado para el tema child tiene un filtro
+        storefront_footer_widget_rows el cual filtra el número de filas del
+        widget de footer y tiene por default 1 fila.
+      </p>
+    </div>
+    <p style="color: blue">
+      ¿Cómo manejarías la seguridad en una tienda WooCommerce? Menciona al menos
+      tres prácticas recomendadas.
+    </p>
+    <div>
+      <ul>
+        <li>
+          1.-Toda tienda o sitio web debe tener como base principal un buen
+          hosting, todo esto debe contar como una buena practica primordial. Un
+          buen hosting es aquel que provee SSL, Backups, monitoreo de ataques,
+          un firewall en servidor, un buen soporte 24/7 y que permita actualizar
+          php y mysql.
+        </li>
+        <li>
+          2.El factor humano es el mas vulnerable en la seguridad de cualquier
+          aplicación, el uso de contraseñas fuertes en las cuentas ya se de
+          administradores o clientes es importante.
+        </li>
+        <li>
+          3.-Uso de plugins de seguridad que tengan monitoreo y bloqueo de
+          ataques de fuerza bruta
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
